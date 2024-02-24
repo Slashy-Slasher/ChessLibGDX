@@ -1,2 +1,3 @@
 # ChessLibGDX
- Chess in Java using LibGDX
+
+Chess in Java using LibGDX
