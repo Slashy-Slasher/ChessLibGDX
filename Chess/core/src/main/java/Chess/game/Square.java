@@ -30,10 +30,8 @@ public class Square
     }
     public boolean isClicked(Vector2 mousePos)
     {
-        //System.out.println(x + " < " + mousePos.x + " < " + (x+size));
         if(x < mousePos.x && x + size > mousePos.x && y < mousePos.y && y + size > mousePos.y)
         {
-           //System.out.print("clicked");
            return true;
         }
         return false;

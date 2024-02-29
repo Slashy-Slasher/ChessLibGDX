@@ -53,14 +53,14 @@ public class Engine
 
     public ArrayList<Square> setBoard(ArrayList<Square> board)
     {
-        String fen = turnHistory.get(turnHistory.size()-1);
-        turnHistory.add(fen);
+        String fen = turnHistory.get(turnHistory.size()-2);
+        System.out.println("Last move: " + turnHistory.get(turnHistory.size()-2));
         String[] delimentedFen = fen.split(",");
         for(int i = 0; i < 64; i++)
         {
             board.get(i).piece = Integer.parseInt(delimentedFen[i]);
-            //board.add(new Square(200+(i%8)*Square.size + Square.size/2,50+(i/8)*Square.size, Integer.parseInt(delimentedFen[i])));
         }
+        turnHistory.add(fen);
         return board;
     }
 

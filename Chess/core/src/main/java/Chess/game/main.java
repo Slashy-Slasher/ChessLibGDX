@@ -48,15 +48,14 @@ public class main extends ApplicationAdapter {
 
         Gdx.gl.glClearColor(0.15f, 0.15f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //extendView.apply();
-        //camZoom(extendCam);
-        //extendCam.update();
-        //batch.setProjectionMatrix(extendCam.combined);
-        //shapeRenderer.setProjectionMatrix(extendCam.combined);
-        //shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+
         if(Gdx.input.isKeyPressed(Input.Keys.Z) && engine.timeCheck())        //Jump
         {
+            System.out.println(board.get(0).piece);
+            System.out.println("Undid");
             board = engine.setBoard(board);
+            System.out.println("Position 1: " + board.get(0).piece);
+
         }
         engine.selectionCheck(board, extendCam);
         engine.drawBoard(board, shapeRenderer, batch);
@@ -64,11 +63,7 @@ public class main extends ApplicationAdapter {
         if(gameTurn)
         {
             engine.turn(board, gameTurn);
-            //System.out.println(gameTurn + " Current");
         }
-
-
-
     }
 
     @Override
