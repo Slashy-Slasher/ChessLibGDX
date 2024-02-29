@@ -4,11 +4,9 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -47,6 +45,7 @@ public class main extends ApplicationAdapter {
     @Override
     public void render()
     {
+
         Gdx.gl.glClearColor(0.15f, 0.15f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         //extendView.apply();
@@ -55,12 +54,17 @@ public class main extends ApplicationAdapter {
         //batch.setProjectionMatrix(extendCam.combined);
         //shapeRenderer.setProjectionMatrix(extendCam.combined);
         //shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        if(Gdx.input.isKeyPressed(Input.Keys.Z) && engine.timeCheck())        //Jump
+        {
+            board = engine.setBoard(board);
+        }
+        engine.selectionCheck(board, extendCam);
         engine.drawBoard(board, shapeRenderer, batch);
         engine.renderMouse(shapeRenderer);
         if(gameTurn)
         {
             engine.turn(board, gameTurn);
-            System.out.println(gameTurn + " Current");
+            //System.out.println(gameTurn + " Current");
         }
 
 
